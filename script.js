@@ -72,6 +72,8 @@ function aplicarConfig() {
   document.getElementById("whatsappLink").href = whatsappUrl;
 
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  initAnalytics();
 }
 
 /* =====================================================================
@@ -201,3 +203,49 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarRepositoriosGitHub();
   generarQR();
 });
+
+/* =====================================================================
+   GA4 vía Google Tag Manager — eventos personalizados
+   Empuja al dataLayer; los tags/triggers se configuran en GTM.
+===================================================================== */
+function pushDataLayerEvent(eventName, params = {}) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: eventName, ...params });
+}
+
+function initAnalytics() {
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    const href = link.href || "";
+    const card = link.closest(".card");
+    const location = link.dataset.gaLocation || (card ? "project_card" : "unknown");
+
+    // Clic en WhatsApp (evento clave / conversión)
+    if (link.id === "whatsappLink") {
+      pushDataLayerEvent("click_whatsapp", { location });
+      return;
+    }
+
+    // Clic en GitHub (botón, social, o link de un repo)
+    if (href.includes("github.com")) {
+      pushDataLayerEvent("click_github", { link_url: href, location });
+    }
+
+    // Clic en LinkedIn
+    if (href.includes("linkedin.com")) {
+      pushDataLayerEvent("click_linkedin", { link_url: href, location });
+    }
+
+    // Clic en un link dentro de una tarjeta de proyecto (repo o demo)
+    if (card) {
+      const projectName = card.querySelector("h3")?.textContent?.trim() || "desconocido";
+      const linkType = link.textContent.toLowerCase().includes("repo") ? "repo" : "demo";
+      pushDataLayerEvent("view_project", { project_name: projectName, link_type: linkType });
+    }
+  });
+}
+
+// Agregá esta línea dentro de tu listener DOMContentLoaded existente:
+// initAnalytics();
