@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José Gutierrez — Portfolio</title>
+<meta name="description" content="Portfolio personal de José Gutierrez, estudiante de Ingeniería en Informática.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <a href="#top" class="nav__brand">AD<span class="nav__dot">.</span></a>
+  <nav class="nav__links">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#github">GitHub</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<main id="top">
+<section class="hero" id="sobre-mi">
+  <div class="hero__terminal">
+    <div class="hero__termbar">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="hero__termbody">
+      <p class="hero__prompt">visitante@portfolio<span class="hero__muted">:~$</span> whoami</p>
+      <h1 class="hero__name" id="typedName"></h1>
+      <p class="hero__role">Estudiante de <strong id="carrera">Ingeniería en Sistemas</strong></p>
+    </div>
+  </div>
+
+  <div class="hero__content">
+    <img
+      class="hero__avatar"
+      src="pics/profile.png"
+      alt="Foto o avatar de José Gutierrez"
+      id="avatar"
+    >
+    <p class="hero__bio" id="bio">
+      Estudiante de Ingeniería en Informática, me interesa el desarrollo web, crear
+      herramientas que resuelvan problemas reales y el desarrollo de videojuegos. Aprendo construyendo proyectos
+      propios y me gusta entender cómo funcionan las cosas de punta a punta,
+      del frontend a la base de datos.
+    </p>
+
+    <ul class="hero__stack" id="stackList" aria-label="Tecnologías conocidas">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Python</li>
+      <li>Git</li>
+      <li>SQL</li>
+    </ul>
+
+    <div class="hero__actions">
+      <a class="btn btn--primary" id="btnGithub" href="https://github.com/tu-usuario" target="_blank" rel="noopener">Ver GitHub</a>
+      <a class="btn btn--ghost" href="#proyectos">Ver proyectos</a>
+      <a class="btn btn--ghost" href="#contacto">Contactar</a>
+    </div>
+
+    <div class="hero__social">
+      <a href="https://github.com/tu-usuario" target="_blank" rel="noopener" aria-label="GitHub">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROYECTOS MANUALES ================= -->
+<section class="section" id="proyectos">
+  <div class="section__head">
+    <h2>Mis proyectos</h2>
+    <p class="section__sub">Una selección con lo que armé, las tecnologías que usé y adónde ver el código.</p>
+  </div>
+
+  <div class="cards" id="manualProjects">
+    <!-- Las tarjetas se generan desde script.js a partir de MANUAL_PROJECTS -->
+  </div>
+</section>
+
+<!-- ================= PROYECTOS DESDE GITHUB API ================= -->
+<section class="section section--alt" id="github">
+  <div class="section__head">
+    <h2>Repositorios en GitHub</h2>
+    <p class="section__sub">Cargados en vivo desde la API pública de GitHub — no están escritos en este HTML.</p>
+  </div>
+
+  <div class="cards" id="githubRepos">
+    <p class="status" id="githubStatus">Cargando repositorios…</p>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="section" id="contacto">
+  <div class="section__head">
+    <h2>Hablemos</h2>
+    <p class="section__sub">La forma más rápida de contactarme es por WhatsApp.</p>
+  </div>
+
+  <div class="contact">
+    <a
+      class="btn btn--primary btn--lg"
+      id="whatsappLink"
+      href="#"
+      target="_blank"
+      rel="noopener"
+    >Escribime por WhatsApp</a>
+
+    <div class="contact__alt">
+      <a href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a>
+      <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QR ================= -->
+<section class="section section--alt" id="qr">
+  <div class="section__head">
+    <h2>Escaneá este portfolio</h2>
+    <p class="section__sub">El código apunta a la URL en la que está publicada esta página.</p>
+  </div>
+
+  <div class="qr">
+    <img id="qrImage" alt="Código QR que enlaza a esta página" width="200" height="200">
+    <p class="qr__url" id="qrUrl"></p>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <p>Hecho por José Gutierrez · <span id="year"></span></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
