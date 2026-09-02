@@ -7,7 +7,7 @@ const CONFIG = {
   carrera: "Ingeniería Informática",
   githubUsername: "JokGC",       // usuario real de GitHub
   linkedinUrl: "https://www.linkedin.com/in/jose-vicente-2731a3433/",
-  whatsappNumber: "595709377",     // código de país + número, sin + ni espacios
+  whatsappNumber: "59598709377",     // código de país + número, sin + ni espacios
   whatsappMensaje: "Hola José! Vi tu portfolio y quería contactarte.",
   maxReposGithub: 6,                  // cuántos repos mostrar como máximo
 };
